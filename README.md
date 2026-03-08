@@ -1,227 +1,100 @@
-# Campus Connect Backend
+# CC_BACKEND
 
-> Spring Boot 기반 커뮤니티 및 실시간 소통 서비스 백엔드
+Campus Connect 서비스의 백엔드 API 서버입니다.  
+사용자 인증, 커뮤니티 게시글, 실시간 기능(WebSocket) 등을 처리하는  
+Spring Boot 기반 백엔드 서버입니다.
 
-Campus Connect는 사용자 간 커뮤니티 활동과 실시간 소통을 지원하는\
-**Spring Boot 기반 백엔드 서비스**입니다.
+## 목차
 
-게시글 기반 커뮤니티 기능과 함께 **WebSocket 기반 실시간 통신**,\
-**Spring Security 인증/인가**, **Redis 기반 데이터 처리**를 적용하여\
+- [프로젝트 소개](#프로젝트-소개)
+- [주요 기능](#주요-기능)
+- [서비스 화면](#서비스-화면)
+- [기술 스택](#기술-스택)
+- [아키텍처](#아키텍처)
+- [프로젝트 구조](#프로젝트-구조)
+- [데이터베이스 설계](#데이터베이스-설계)
+- [API 도메인](#api-도메인)
+- [실행 방법](#실행-방법)
+- [환경 변수](#환경-변수)
+
+---
+
+# 프로젝트 소개
+
+| 항목 | 내용 |
+| --- | --- |
+| 프로젝트 이름 | Campus Connect Backend |
+| 역할 | Backend 개발 |
+| 개발 인원 | Backend 1 |
+| 핵심 스택 | Java 17, Spring Boot, JPA, Redis, WebSocket |
+
+Campus Connect는 사용자 간 커뮤니티 활동과 실시간 소통을 지원하는  
+**Spring Boot 기반 커뮤니티 서비스 백엔드**입니다.
+
+게시글 기반 커뮤니티 기능과 함께  
+**WebSocket 기반 실시간 통신**, **Spring Security 인증**, **Redis 캐시** 등을 적용하여  
 확장성과 유지보수성을 고려한 백엔드 아키텍처를 설계했습니다.
 
-------------------------------------------------------------------------
+---
 
-# 📌 프로젝트 개요
+# 주요 기능
 
-  항목            내용
-  --------------- ---------------------------------------
-  프로젝트 이름   Campus Connect Backend
-  개발 인원       Backend 1명
-  개발 환경       Java 17, Spring Boot
-  Repository      https://github.com/mjkang4416/CC_back
+- 사용자 인증 / 권한 관리
+- 커뮤니티 게시글 CRUD
+- WebSocket 기반 실시간 기능
+- Redis 기반 데이터 처리
+- Swagger 기반 API 문서 제공
 
-------------------------------------------------------------------------
+---
 
-# 🏗 시스템 아키텍처
+# 서비스 화면
 
-    Client
-       │
-       ▼
-    Controller
-       │
-       ▼
-    Service
-       │
-       ▼
-    Repository
-       │
-       ▼
-    Database (MySQL)
+> 아래 이미지들은 `docs/images` 폴더에 업로드한 뒤 사용하세요.
 
-계층형 아키텍처(Layered Architecture)를 적용하여\
-각 계층의 역할을 명확하게 분리하고 유지보수성을 높였습니다.
+### 메인 화면
+![메인](docs/images/main.png)
 
-------------------------------------------------------------------------
+### 게시글 화면
+![게시글](docs/images/post.png)
 
-# ⚙ 기술 스택
+---
+
+# 기술 스택
 
 ## Backend
 
-  기술                설명
-  ------------------- ----------------------------
-  Java 17             백엔드 개발 언어
-  Spring Boot         백엔드 프레임워크
-  Spring Data JPA     ORM
-  Spring Security     인증 및 인가
-  WebSocket / STOMP   실시간 통신
-  Redis               캐시 및 실시간 데이터 처리
-
-------------------------------------------------------------------------
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- WebSocket / STOMP
+- Redis
 
 ## Database
 
-  기술    설명
-  ------- ---------------------
-  MySQL   관계형 데이터베이스
+- MySQL
 
-------------------------------------------------------------------------
+## Infra / DevOps
 
-## API 문서 및 로깅
+- AWS (EC2, RDS)
 
-  기술               설명
-  ------------------ -----------------
-  Swagger(OpenAPI)   API 문서 자동화
-  log4jdbc           SQL 로그 출력
-  Logback            로그 관리
+## Tools
 
-------------------------------------------------------------------------
+- Swagger (springdoc-openapi)
+- log4jdbc
+- Logback
 
-## Build Tool
+---
 
-  기술     설명
-  -------- --------------------
-  Gradle   프로젝트 빌드 도구
+# 아키텍처
 
-------------------------------------------------------------------------
-
-# 📂 프로젝트 구조
-
-    src/main/java/com/example/cc
-
-    config
-     ├ security
-     ├ websocket
-     └ redis
-
-    controller
-    service
-    repository
-    entity
-    dto
-
-    CcApplication.java
-
-------------------------------------------------------------------------
-
-# 🚀 주요 기능
-
-## 사용자 인증 / 인가
-
--   Spring Security 기반 인증 처리
--   사용자 권한 관리
--   API 접근 제어
-
-------------------------------------------------------------------------
-
-## 커뮤니티 기능
-
--   게시글 생성 / 조회 / 수정 / 삭제
--   커뮤니티 데이터 관리
--   DTO 기반 API 응답 구조
-
-------------------------------------------------------------------------
-
-## 실시간 기능
-
--   WebSocket + STOMP 기반 실시간 통신
--   사용자 간 이벤트 전달
-
-------------------------------------------------------------------------
-
-## 데이터 관리
-
--   JPA 기반 데이터 접근
--   Repository 계층 분리
--   Entity / DTO 기반 데이터 모델링
-
-------------------------------------------------------------------------
-
-## 캐시 및 성능 개선
-
--   Redis 기반 데이터 처리
--   실시간 데이터 처리 성능 개선
-
-------------------------------------------------------------------------
-
-# 📑 API 문서
-
-Swagger UI
-
-    http://localhost:8080/swagger-ui/index.html
-
-------------------------------------------------------------------------
-
-# ⚙ 실행 방법
-
-## 1. 프로젝트 클론
-
-    git clone https://github.com/mjkang4416/CC_back.git
-
-## 2. 환경 설정
-
-application.properties
-
-    spring.datasource.url=jdbc:mysql://localhost:3306/db_name
-    spring.datasource.username=your_id
-    spring.datasource.password=your_password
-
-    spring.data.redis.host=localhost
-    spring.data.redis.port=6379
-
-## 3. 프로젝트 실행
-
-    ./gradlew bootRun
-
-또는 IDE에서
-
-    CcApplication 실행
-
-------------------------------------------------------------------------
-
-# 📊 ERD
-
-![ERD](./doc/images/erd.png)
-
-------------------------------------------------------------------------
-
-# 📷 서비스 화면
-
-![main](./doc/images/main.png)
-
-![community](./doc/images/community.png)
-
-------------------------------------------------------------------------
-
-# 🔧 트러블슈팅
-
-### Spring Security 인증 흐름 설계
-
-Spring Security 적용 과정에서\
-인증 처리 흐름과 권한 관리 구조를 설계하여 API 접근 제어를 구현했습니다.
-
-### WebSocket 기반 실시간 기능 구현
-
-WebSocket + STOMP 구조를 적용하여 사용자 간 이벤트 전달을 비동기
-방식으로 처리했습니다.
-
-### Redis 활용
-
-Redis를 활용하여 실시간 데이터 처리와 데이터 접근 성능을 개선했습니다.
-
-------------------------------------------------------------------------
-
-# 📈 향후 개선 방향
-
--   캐시 전략 고도화
--   API 응답 구조 통일
--   테스트 코드 추가
--   서비스 계층 책임 분리
-
-------------------------------------------------------------------------
-
-# 👨‍💻 Developer
-
-Backend Developer
-
-GitHub\
-https://github.com/mjkang4416
+```mermaid
+flowchart LR
+    User[User] --> FE[Frontend]
+    FE --> API[Spring Boot API]
+    API --> SEC[Spring Security]
+    API --> SERVICE[Service Layer]
+    SERVICE --> REPO[JPA Repository]
+    REPO --> DB[(MySQL)]
+    API --> REDIS[(Redis)]
+    API --> WS[WebSocket]
