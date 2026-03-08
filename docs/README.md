@@ -14,15 +14,9 @@ Spring Boot 기반 커뮤니티 서비스이며 **LLM 기반 챗봇 기능**을
   항목            내용
   --------------- -------------------------------
   프로젝트 이름   Campus Connect Backend
-  개발 인원       Backend 1
+  개발 인원       Backend 2 Frontend 2
   핵심 기술       Spring Boot, Redis, WebSocket
   주요 기능       커뮤니티 + 챗봇 상담
-
-Campus Connect는 사용자 간 커뮤니티 활동과\
-챗봇 기반 상담 기능을 제공하는 서비스입니다.
-
-Spring Boot 서버는\
-**서비스 API와 챗봇 서버 사이에서 Gateway 역할**을 수행합니다.
 
 ------------------------------------------------------------------------
 
@@ -33,42 +27,6 @@ Spring Boot 서버는\
   <img src="https://github.com/mjkang4416/CC_back/blob/a57eb246ad82a6cbe27ca6ca1b9b239f5ae88067/docs/image1.png" width="30%">
   <img src="https://github.com/mjkang4416/CC_back/blob/1af0cb5cdd85acdf3bbce807c88e891c5df59450/docs/image3.png" width="30%">
 </p>
-
-
-------------------------------------------------------------------------
-
-# 챗봇 시스템 아키텍처
-
-``` mermaid
-flowchart LR
-User --> Frontend
-Frontend --> SpringBoot
-SpringBoot --> ChatbotServer
-ChatbotServer --> LLM
-LLM --> KnowledgeBase
-```
-
-Campus Connect에서는 사용자 문의를 빠르게 처리하기 위해\
-**LLM 기반 챗봇 상담 기능**을 제공합니다.
-
-챗봇 모델은 **Python 서버**에서 실행되며\
-Spring Boot 서버는 **API Gateway 역할**을 수행합니다.
-
-------------------------------------------------------------------------
-
-# 챗봇 서빙 흐름
-
-1️⃣ 사용자가 질문 입력\
-2️⃣ 프론트엔드 → Spring Boot API 요청\
-3️⃣ Spring Boot → 챗봇 서버 호출\
-4️⃣ 챗봇 서버에서 LLM 기반 응답 생성\
-5️⃣ 응답 결과를 사용자에게 전달
-
-### 설계 포인트
-
--   **AI 서버와 서비스 서버 분리**
--   **확장 가능한 챗봇 구조**
--   **API Gateway 패턴 적용**
 
 ------------------------------------------------------------------------
 
@@ -118,6 +76,23 @@ Repository --> DB[(MySQL)]
 API --> Redis
 API --> WebSocket
 ```
+
+# 챗봇 시스템 아키텍처
+
+``` mermaid
+flowchart LR
+User --> Frontend
+Frontend --> SpringBoot
+SpringBoot --> ChatbotServer
+ChatbotServer --> LLM
+LLM --> KnowledgeBase
+```
+
+Campus Connect에서는 사용자 문의를 빠르게 처리하기 위해\
+**LLM 기반 챗봇 상담 기능**을 제공합니다.
+
+챗봇 모델은 **Python 서버**에서 실행되며\
+Spring Boot 서버는 **API Gateway 역할**을 수행합니다.
 
 ------------------------------------------------------------------------
 
