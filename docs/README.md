@@ -11,12 +11,14 @@ Spring Boot 기반 커뮤니티 서비스이며 **LLM 기반 챗봇 기능**을
 
 # 프로젝트 소개
 
-  항목            내용
-  --------------- -------------------------------
-  프로젝트 이름   Campus Connect Backend
-  개발 인원       Backend 2 Frontend 2
-  핵심 기술       Spring Boot, Redis, WebSocket
-  주요 기능       커뮤니티 + 챗봇 상담
+## 프로젝트 소개
+
+| 항목 | 내용 |
+| --- | --- |
+| 프로젝트 이름 | Campus Connect Backend |
+| 역할 | Backend 개발 |
+| 개발 인원 | Backend 2 |
+| 핵심 스택 | Java 17, Spring Boot, JPA, Redis, WebSocket |
 
 ------------------------------------------------------------------------
 
