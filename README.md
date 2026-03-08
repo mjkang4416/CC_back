@@ -25,7 +25,7 @@ Spring Boot 기반 백엔드 서버입니다.
 | --- | --- |
 | 프로젝트 이름 | Campus Connect Backend |
 | 역할 | Backend 개발 |
-| 개발 인원 | Backend 1 |
+| 개발 인원 | Backend 2 | Frontend 2 |
 | 핵심 스택 | Java 17, Spring Boot, JPA, Redis, WebSocket |
 
 Campus Connect는 사용자 간 커뮤니티 활동과 실시간 소통을 지원하는  
