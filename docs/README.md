@@ -28,15 +28,12 @@ Spring Boot 서버는\
 
 # 서비스 화면
 
-```{=html}
 <p align="center">
-```
-`<img src="https://github.com/mjkang4416/CC_back/blob/main/docs/image.png" width="30%">`{=html}
-`<img src="https://github.com/mjkang4416/CC_back/blob/main/docs/image1.png" width="30%">`{=html}
-`<img src="https://github.com/mjkang4416/CC_back/blob/main/docs/image3.png" width="30%">`{=html}
-```{=html}
+  <img src="https://github.com/mjkang4416/CC_back/blob/3220c7029269b171129110c785a118d9167015f7/docs/image.png" width="30%">
+  <img src="https://github.com/mjkang4416/CC_back/blob/a57eb246ad82a6cbe27ca6ca1b9b239f5ae88067/docs/image1.png" width="30%">
+  <img src="https://github.com/mjkang4416/CC_back/blob/1af0cb5cdd85acdf3bbce807c88e891c5df59450/docs/image3.png" width="30%">
 </p>
-```
+
 
 ------------------------------------------------------------------------
 
